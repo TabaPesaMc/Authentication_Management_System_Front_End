@@ -1,0 +1,20 @@
+
+.swal-custom-popup {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 9999 !important;
+    width: 90%; /* Adjust width if needed */
+    max-width: 500px; /* Maximum width */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  /* Customize the icon */
+  .swal-custom-icon {
+    font-size: 40px; /* Adjust size of the icon */
+    margin-bottom: 20px;
+  }
+  
