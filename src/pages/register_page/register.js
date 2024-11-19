@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { showAlert } from "./shared/messages/message_dialog";
+import { showAlert } from "../../components/shared";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Register = () => {
+  const [teams, setTeams] = useState([]);
+
   const [registerData, setRegisterData] = useState({
     username: "",
     email: "",
     contactNumber: "",
+    teamId: "",
     password: "",
   });
 
   const [loading, setLoading] = useState(false);
 
+  const [hasAccount, setHasAccount] = useState(false);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await axios.get("/api/teams"); // Adjust endpoint if needed
+        setTeams(response.data);
+      } catch (error) {
+        console.error("Error fetching teams", error);
+      }
+    };
+    fetchTeams();
+  }, []);
 
   const handleChange = (e) => {
     setRegisterData({
@@ -23,7 +40,15 @@ const Register = () => {
     });
   };
 
-  const [hasAccount, setHasAccount] = useState(false);
+  // Handle team selection from dropdown
+  const handleTeamChange = (e) => {
+    console.log("*********", registerData);
+
+    setRegisterData({
+      ...registerData,
+      teamId: e.target.value, // Set the teamId selected by the user
+    });
+  };
 
   const handleAccountToggle = () => {
     setHasAccount(!hasAccount);
@@ -59,7 +84,7 @@ const Register = () => {
         </p>
 
         <div className="input-group">
-          <label>Team Name (Username):</label>
+          <label>Username:</label>
           <input
             type="text"
             name="username"
@@ -89,6 +114,24 @@ const Register = () => {
             value={registerData.contactNumber}
             onChange={handleChange}
           />
+        </div>
+
+        <div className="input-group">
+          <label>Team Name:</label>
+          <select
+            name="teamId"
+            onChange={handleTeamChange}
+            value={registerData.teamId}
+          >
+            <option value="" disabled>
+            -- Select Team --
+            </option>
+            {teams.map((team) => (
+              <option key={team.teamId} value={team.teamId}>
+                {team.teamName}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="input-group">

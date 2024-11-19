@@ -1,7 +1,8 @@
 
 /* Background */
+
 body {
-    background-image: url('/src/images/benjamin_mkapa_stadium.jpg'); /* Different image related to fans or stadium */
+    background-image: url('/src/images/benjamin_mkapa_stadium.jpg'); 
     background-size: cover;
     background-position: center;
     font-family: 'Arial', sans-serif;
@@ -43,6 +44,14 @@ body {
   }
   
   .input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .input-group select {
     width: 100%;
     padding: 12px;
     border-radius: 8px;

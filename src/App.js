@@ -1,44 +1,22 @@
-// import logo from './logo.svg';
-// import 'App.css';
-import EmailVerification from './components/email_verification';
-import './styles/login.css';
-import './styles/register_styles.css';
-import './styles/email_verification.css';
-import './styles/forget_password.css';
-import './styles/reset_password.css';
+import EmailVerification from './pages/email_verification_page/email_verification';
+import '../src/pages/login_page/login.css';
+import '../src/pages/register_page/register.css';
+import './pages/email_verification_page/email_verification.css';
+import '../src/pages/forget_password_page/forget_password.css';
+import '../src/pages/reset_password_page/reset_password.css';
 import React from 'react';
 import { Navigate,BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/login';
-import Register from './components/register';
-import Home from './components/home';
-import ForgotPassword from './components/forget_password';
-import ResetPassword from './components/reset_password';
-
+import Login from './pages/login_page/login';
+import Register from './pages/register_page/register';
+import Home from './pages/home_page/home';
+import ForgotPassword from './pages/forget_password_page/forget_password';
+import ResetPassword from './pages/reset_password_page/reset_password';
 
 function App() {
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-    
-  //   if (token) {
-
-  //     axios.interceptors.request.use(
-  //       (config) => {
-  //         config.headers.Authorization = `Bearer ${token}`;
-  //         return config;
-  //       },
-  //       (error) => Promise.reject(error)
-  //     );
-  //   }
-  // }, []); 
-
-
   return (
     <Router>
-       
     <div className="App">
       <Routes>
-     
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -49,23 +27,42 @@ function App() {
       </Routes>
     </div>
   </Router>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   )
 }
 
 export default App;
+
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import MainLayout from "./components/main_layout/main_layout";
+// import Home from "./pages/home_page/home";
+// import Login from "./pages/login_page/login";
+// import Register from "./pages/register_page/register";
+// import EmailVerification from "./pages/email_verification_page/email_verification";
+// import ForgotPassword from "./pages/forget_password_page/forget_password";
+// import ResetPassword from "./pages/reset_password_page/reset_password";
+// import GeneralChat from "./pages/general_chat_page/general_chat";
+// import Profile from "./pages/profile_page/profile";
+
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<MainLayout />}>
+//           <Route index element={<Home />} />
+//           <Route path="login" element={<Login />} />
+//           <Route path="register" element={<Register />} />
+//           <Route path="general-chat-rooms" element={<GeneralChat />} />
+
+//           <Route path="verify-email" element={<EmailVerification />} />
+//           <Route path="forgot-password" element={<ForgotPassword />} />
+//           <Route path="reset_password" element={<ResetPassword />} />
+//           <Route path="profile" element={<Profile />} />
+//         </Route>
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;

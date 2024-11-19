@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { showAlert } from "./shared/messages/message_dialog";
+import { showAlert } from "../../components/shared/messages/message_dialog";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const EmailVerification = () => {

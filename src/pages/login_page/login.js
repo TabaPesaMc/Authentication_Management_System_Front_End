@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { showAlert } from "./shared/messages/message_dialog";
+import { showAlert } from "../../components/shared";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
   const handleAccountToggle = () => {
     setHasNoAccount(!hasNoAccount);
     if (!hasNoAccount) {
-      navigate("/register"); // Redirect to login if checkbox is checked
+      navigate("/register");
     }
   };
 
@@ -29,19 +29,6 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // useEffect(() => {
-  //   axios.interceptors.request.use(
-  //     (config) => {
-  //       const token = localStorage.getItem("token");
-  //       if (token) {
-  //         config.headers.Authorization = `Bearer ${token}`;
-  //       }
-  //       return config;
-  //     },
-  //     (error) => Promise.reject(error)
-  //   );
-  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -106,13 +93,6 @@ const Login = () => {
           )}
         </button>
 
-        {/* <button type="submit" disabled={loading} className="login-button">
-         {loading && <div className="button-spinner"></div>}
-           Login
-        </button> */}
-
-        {/* <button type="submit">Login</button> */}
-
         <div style={{ marginTop: "10px" }}>
           <input
             type="checkbox"
@@ -121,8 +101,7 @@ const Login = () => {
           />
           <label style={{ marginLeft: "5px" }}>I don't have an account</label>
         </div>
-
-        {/* Forgot Password Link */}
+        
         <div style={{ marginTop: "10px" }}>
           <button
             type="button"

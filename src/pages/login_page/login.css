@@ -45,8 +45,10 @@
   /* App.css */
 
 /* Background and container */
-body {
-  background-image: url('/src/images/benjamin_mkapa_stadium.jpg'); /* Add a football-related background image */
+
+
+/* body {
+  background-image: url('/src/images/benjamin_mkapa_stadium.jpg');
   background-size: cover;
   background-position: center;
   font-family: 'Arial', sans-serif;
@@ -55,7 +57,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .login-container {
   background: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */

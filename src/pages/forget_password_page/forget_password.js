@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { showAlert } from "./shared/messages/message_dialog";
+import { showAlert } from "../../components/shared";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const ForgotPassword = () => {
